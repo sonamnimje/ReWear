@@ -49,9 +49,8 @@ Each year, millions of wearable clothes are discarded, significantly contributin
 ## 🛠️ Tech Stack
 
 **Frontend:**
-- React.js
-- Tailwind CSS / Bootstrap
-- Axios
+- React
+- Tailwind CSS 
 
 **Backend:**
 - Django + Django REST Framework
@@ -63,6 +62,9 @@ Each year, millions of wearable clothes are discarded, significantly contributin
 **Storage:**
 - Cloudinary / AWS S3 for image uploads (optional)
 
+
+**Deployment:** 
+- Vercel (frontend), Render / Railway (backend)
 ---
 
 ## 🔧 Installation & Setup
