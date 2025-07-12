@@ -56,11 +56,11 @@ Each year, millions of wearable clothes are discarded, significantly contributin
 ### Backend
 - **FastAPI** (Python) for robust API
 - **SQLAlchemy** for database ORM
-- **PostgreSQL** for data persistence
+- **SQLite** for data persistence
 - **JWT** for authentication
 - **Pydantic** for data validation
 
-### AI Integration
+### AI Integration(Future use)
 - **SmartChain AI** chatbot for user assistance
 - **Llama 2** model for intelligent recommendations
 - **Local AI processing** for privacy and cost efficiency
@@ -78,17 +78,14 @@ ReWear/
 ├── docs/             # Documentation
 <<<<<<< HEAD
 └── README.md         # This file
-=======
-└── README.md         # Readme file
->>>>>>> dc473949fbf57292ec7734d57a5c6b43851d5251
-```
+
 
 ## 🛠️ Installation & Setup
 
 ### 1.  Prerequisites
 - Node.js (v16 or higher)
 - Python (v3.8 or higher)
-- PostgreSQL database
+- SQLite (no setup required, comes bundled with Python)
 
 ### 2. Clone the repo:
 
@@ -135,7 +132,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 🌍 Let's Make Fashion Circular.
 ReWear is committed to creating a positive environmental and social impact by helping people exchange clothes, reduce waste, and embrace sustainable living.
 ---
-
 *Built with ❤️ for a more sustainable future* 
-
 
