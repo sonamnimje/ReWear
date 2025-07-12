@@ -1,8 +1,6 @@
 # 👕 ReWear – Community Clothing Exchange
 
-**ReWear** is a web-based platform that empowers individuals to swap unused clothing through direct exchanges or a point-based system. Designed to promote sustainable fashion and reduce textile waste, ReWear creates a community-centered ecosystem where garments are reused, not discarded.
-
----
+ReWear is a web-based platform that empowers individuals to swap unused clothing through direct exchanges or a point-based system. Designed to promote sustainable fashion and reduce textile waste, ReWear creates a community-centered ecosystem where garments are reused, not discarded.
 
 ## 🧩 Problem Statement
 
@@ -10,7 +8,6 @@ Each year, millions of wearable clothes are discarded, significantly contributin
 **ReWear** addresses this gap by enabling peer-to-peer swaps and incentivized redemptions through a point-based model—making sustainable fashion more accessible and engaging.
 
 ---
-
 ## 🚀 Features
 
 ### 👤 User Authentication
@@ -46,48 +43,63 @@ Each year, millions of wearable clothes are discarded, significantly contributin
 
 ---
 
-## 🛠️ Tech Stack
 
-**Frontend:**
-- React
-- Tailwind CSS 
+## 🚀 Tech Stack
 
-**Backend:**
-- Django + Django REST Framework
-- PostgreSQL / SQLite (for dev)
+### Frontend
+- **React** with TypeScript
+- **Tailwind CSS** for styling
+- **React Router** for navigation
+- **Axios** for API communication
+- **React Query** for state management
 
-**Authentication:**
-- Django Rest Framework SimpleJWT
+### Backend
+- **FastAPI** (Python) for robust API
+- **SQLAlchemy** for database ORM
+- **PostgreSQL** for data persistence
+- **JWT** for authentication
+- **Pydantic** for data validation
 
-**Storage:**
-- Cloudinary / AWS S3 for image uploads (optional)
+### AI Integration
+- **SmartChain AI** chatbot for user assistance
+- **Llama 2** model for intelligent recommendations
+- **Local AI processing** for privacy and cost efficiency
 
-
-**Deployment:** 
+### Deployment:
 - Vercel (frontend), Render / Railway (backend)
 ---
 
-## 🔧 Installation & Setup
+## 📁 Project Structure
 
-### 1. Clone the repo:
+```
+ReWear/
+├── frontend/          # React frontend application
+├── backend/           # FastAPI backend server
+├── docs/             # Documentation
+└── README.md         # This file
+```
+
+## 🛠️ Installation & Setup
+
+### 1.  Prerequisites
+- Node.js (v16 or higher)
+- Python (v3.8 or higher)
+- PostgreSQL database
+
+### 2. Clone the repo:
 
 ```bash
 git clone https://github.com/sonamnimje/rewear.git
 cd rewear
 ```
-
-### 2. Backend Setup (Django)
-
+### 3. Backend Setup
 ```bash
 cd backend
-python -m venv env
-source env/bin/activate  # on Windows: env\Scripts\activate
 pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
+uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
-3. Frontend Setup (React)
+### 4. Frontend Setup
 ```bash
 cd frontend
 npm install
@@ -102,16 +114,22 @@ npm start
 | Shreya Saraf  | Frontend Developer   | shreyasaraf765@gmail.com     |
 | Sonam Nimje   | Backend Engineer     | sonamnimje27@gmail.com     |
 | Sameeksha Vishwakarma    | UI/UX Designer       | sameekshavishwakarma16@gmail.com     |
- 
+---
 
-# 📧 For questions or collaboration, feel free to contact us!
+## 🌱 Environmental Impact
+
+ReWear contributes to sustainability by:
+- **Reducing textile waste** through community exchanges
+- **Promoting circular fashion** economy
+- **Building awareness** about sustainable consumption
+- **Creating community** around eco-friendly practices
 
 # 🤝 Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-
 ---
-
 🌍 Let's Make Fashion Circular.
 ReWear is committed to creating a positive environmental and social impact by helping people exchange clothes, reduce waste, and embrace sustainable living.
+---
 
+*Built with ❤️ for a more sustainable future* 
