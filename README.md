@@ -136,8 +136,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ReWear is committed to creating a positive environmental and social impact by helping people exchange clothes, reduce waste, and embrace sustainable living.
 ---
 
-<<<<<<< HEAD
-*Built with ❤️ for a more sustainable future* 
+<<<<<<<< HEAD
+(local version)
 =======
-*Built with ❤️ for a more sustainable future* 
->>>>>>> dc473949fbf57292ec7734d57a5c6b43851d5251
+(remote version)
+>>>>>>> main
+
