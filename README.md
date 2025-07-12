@@ -76,7 +76,11 @@ ReWear/
 ├── frontend/          # React frontend application
 ├── backend/           # FastAPI backend server
 ├── docs/             # Documentation
+<<<<<<< HEAD
 └── README.md         # This file
+=======
+└── README.md         # Readme file
+>>>>>>> dc473949fbf57292ec7734d57a5c6b43851d5251
 ```
 
 ## 🛠️ Installation & Setup
@@ -132,4 +136,8 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ReWear is committed to creating a positive environmental and social impact by helping people exchange clothes, reduce waste, and embrace sustainable living.
 ---
 
+<<<<<<< HEAD
 *Built with ❤️ for a more sustainable future* 
+=======
+*Built with ❤️ for a more sustainable future* 
+>>>>>>> dc473949fbf57292ec7734d57a5c6b43851d5251
