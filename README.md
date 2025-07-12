@@ -76,7 +76,7 @@ ReWear/
 ├── frontend/          # React frontend application
 ├── backend/           # FastAPI backend server
 ├── docs/             # Documentation
-└── README.md         # This file
+└── README.md         # Readme file
 ```
 
 ## 🛠️ Installation & Setup
