@@ -17,20 +17,23 @@ router.get('/', async (req, res) => {
       SELECT i.*, u.username as owner_username, u.avatar_url as owner_avatar
       FROM items i
       JOIN users u ON i.owner_id = u.id
-      WHERE i.is_available = true
-    `;
+    `; // Removed WHERE i.is_available = true
     const params = [];
     let paramCount = 0;
 
     if (category) {
       paramCount++;
-      query += ` AND i.category = $${paramCount}`;
+      query += ` WHERE i.category = $${paramCount}`;
       params.push(category);
     }
 
     if (search) {
       paramCount++;
-      query += ` AND (i.title ILIKE $${paramCount} OR i.description ILIKE $${paramCount} OR i.brand ILIKE $${paramCount})`;
+      if (params.length > 0) {
+        query += ` AND (i.title ILIKE $${paramCount} OR i.description ILIKE $${paramCount} OR i.brand ILIKE $${paramCount})`;
+      } else {
+        query += ` WHERE (i.title ILIKE $${paramCount} OR i.description ILIKE $${paramCount} OR i.brand ILIKE $${paramCount})`;
+      }
       params.push(`%${search}%`);
     }
 

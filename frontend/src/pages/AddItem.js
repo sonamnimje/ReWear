@@ -15,6 +15,7 @@ const ProductDetailPage = () => {
   const [tagInput, setTagInput] = useState('');
 
   const { data: myItems } = useQuery(['my-items'], () => usersAPI.getMyItems());
+  console.log('myItems:', myItems);
 
   const {
     register,
@@ -27,6 +28,7 @@ const ProductDetailPage = () => {
     (itemData) => itemsAPI.create(itemData),
     {
       onSuccess: (data) => {
+        console.log('Created item:', data);
         toast.success('Item created successfully!');
         queryClient.invalidateQueries(['items']);
         queryClient.invalidateQueries(['my-items']);
@@ -111,9 +113,57 @@ const ProductDetailPage = () => {
               <input type="file" multiple accept="image/*" onChange={handleImageUpload} className="hidden" id="image-upload" />
               <label htmlFor="image-upload" className="btn-secondary cursor-pointer w-full block text-center">Choose Images</label>
             </div>
-            {/* Add Product Description */}
+            {/* Add Product Details */}
             <div className="flex flex-col h-full">
               <div className="bg-white rounded-xl shadow p-6 flex-1 mb-4">
+                <label className="block text-sm font-medium text-gray-700 mb-2">Title</label>
+                <input
+                  {...register('title', { required: 'Title is required' })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 mb-2"
+                  placeholder="Title"
+                />
+                {errors.title && <p className="mt-1 text-xs text-red-400">{errors.title.message}</p>}
+
+                <label className="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                <select
+                  {...register('category', { required: 'Category is required' })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 mb-2"
+                >
+                  <option value="">Select Category</option>
+                  <option value="tops">Tops</option>
+                  <option value="bottoms">Bottoms</option>
+                  <option value="dresses">Dresses</option>
+                  <option value="outerwear">Outerwear</option>
+                  <option value="shoes">Shoes</option>
+                  <option value="accessories">Accessories</option>
+                  <option value="bags">Bags</option>
+                  <option value="other">Other</option>
+                </select>
+                {errors.category && <p className="mt-1 text-xs text-red-400">{errors.category.message}</p>}
+
+                <label className="block text-sm font-medium text-gray-700 mb-2">Condition</label>
+                <select
+                  {...register('condition', { required: 'Condition is required' })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 mb-2"
+                >
+                  <option value="">Select Condition</option>
+                  <option value="new">New</option>
+                  <option value="like_new">Like New</option>
+                  <option value="good">Good</option>
+                  <option value="fair">Fair</option>
+                  <option value="poor">Poor</option>
+                </select>
+                {errors.condition && <p className="mt-1 text-xs text-red-400">{errors.condition.message}</p>}
+
+                <label className="block text-sm font-medium text-gray-700 mb-2">Points</label>
+                <input
+                  type="number"
+                  {...register('price_points', { required: 'Points required', min: 0 })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 mb-2"
+                  placeholder="Points"
+                />
+                {errors.price_points && <p className="mt-1 text-xs text-red-400">{errors.price_points.message}</p>}
+
                 <label className="block text-sm font-medium text-gray-700 mb-2">Add Product Description</label>
                 <textarea
                   {...register('description', {

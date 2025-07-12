@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { useAuth } from '../contexts/AuthContext';
 import { Eye, EyeOff, User, Mail, Lock } from 'lucide-react';
-import Navbar from '../components/Navbar';
+// Removed: import Navbar from '../components/Navbar';
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -34,7 +34,7 @@ const Register = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-black">
-      <Navbar />
+      {/* Removed: <Navbar /> */}
       <div className="w-full max-w-sm bg-black rounded-2xl shadow-lg p-8 flex flex-col items-center border-2 border-white">
         {/* Avatar */}
         <div className="w-20 h-20 rounded-full bg-gray-700 flex items-center justify-center mb-8">

@@ -1,21 +1,59 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { useQuery } from 'react-query';
-import { itemsAPI } from '../services/api';
+// import { useQuery } from 'react-query';
+// import { itemsAPI } from '../services/api';
 import { Search } from 'lucide-react';
 import Navbar from '../components/Navbar';
+
+const hardcodedProducts = [
+  {
+    id: '1',
+    title: 'Eco Denim Jacket',
+    description: 'A stylish jacket made from recycled denim. Perfect for eco-conscious fashion lovers!',
+    image_urls: '["/denimjackect.png"]',
+    category: 'Jackets',
+    price_points: 25
+  },
+  {
+    id: '2',
+    title: 'Organic Cotton Tee',
+    description: 'Soft, breathable, and made from 100% organic cotton.',
+    image_urls: '["/top.png"]',
+    category: 'T-Shirts',
+    price_points: 12
+  },
+  {
+    id: '3',
+    title: 'Recycled Tote Bag',
+    description: 'Carry your essentials in style with this eco-friendly tote bag.',
+    image_urls: '["/bagss.png"]',
+    category: 'Bags',
+    price_points: 8
+  }
+];
 
 const ItemDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
-  const { data: item, isLoading } = useQuery(
-    ['item', id],
-    () => itemsAPI.getById(id),
-    { staleTime: 5 * 60 * 1000 }
-  );
+  // const { data: item, isLoading } = useQuery(
+  //   ['item', id],
+  //   () => itemsAPI.getById(id),
+  //   { staleTime: 5 * 60 * 1000 }
+  // );
 
+  // Use hardcoded product instead of fetched item
+  const item = hardcodedProducts.find(p => p.id === id);
   const images = item?.image_urls ? JSON.parse(item.image_urls) : [];
+
+  if (!item) {
+    return (
+      <div className="min-h-screen bg-base font-body flex flex-col items-center justify-center">
+        <Navbar />
+        <div className="text-2xl text-red-500 font-bold mt-20">Product not found.</div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-base font-body">

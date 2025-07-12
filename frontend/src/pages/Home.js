@@ -32,7 +32,7 @@ const Home = () => {
     <div
       className="min-h-screen font-body relative"
       style={{
-        backgroundImage: "url('/carousel1.jpg')",
+        backgroundImage: "url('/BannerNew.jpg')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -107,13 +107,28 @@ const Home = () => {
 
         {/* Image Carousel / Banner */}
         <div className="w-full mt-8 px-8">
-          <div className="w-full aspect-[3393/1497] rounded-xl flex items-center justify-center overflow-hidden relative border-4 border-white shadow-lg">
+          <div className="w-full aspect-[970/250] rounded-xl flex items-center justify-center overflow-hidden relative border-4 border-white shadow-lg">
             <img
-              src="/Banner.png"
-              alt="ReWear. Reuse. Relove. Swap your clothes, not the planet."
+              src="/ReWear[1].png"
+              alt="ReWear. Reus. Relove. Swap your clothes, not the planet."
               className="w-full h-full object-contain rounded-lg"
               style={{ filter: 'brightness(0.9)' }}
             />
+          </div>
+          {/* Add action buttons below banner */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8">
+            <Link
+              to="/login"
+              className="px-8 py-4 rounded-lg text-2xl font-bold bg-eco text-white shadow hover:bg-eco/90 transition"
+            >
+              Start Swapping
+            </Link>
+            <Link
+              to="/items"
+              className="px-8 py-4 rounded-lg text-2xl font-bold bg-accent text-white shadow hover:bg-accent/90 transition"
+            >
+              Browse Items
+            </Link>
           </div>
         </div>
 

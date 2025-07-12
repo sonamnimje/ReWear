@@ -11,13 +11,37 @@ const Profile = () => {
   const [myExchanges, setMyExchanges] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Mock data for Wishlist and Bag
+  const [wishlist, setWishlist] = useState([
+    {
+      id: 1,
+      title: 'Eco Denim Jacket',
+      image: '/denimjackect.png',
+      price: '$25',
+    },
+    {
+      id: 2,
+      title: 'Organic Cotton Tee',
+      image: '/top.png',
+      price: '$12',
+    },
+  ]);
+  const [bag, setBag] = useState([
+    {
+      id: 3,
+      title: 'Recycled Tote Bag',
+      image: '/bagss.png',
+      price: '$8',
+    },
+  ]);
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
         // Fetch user's items
         const itemsRes = await itemsAPI.getAll({ owner_id: user?.id });
-        setMyItems(itemsRes || []);
+        setMyItems(Array.isArray(itemsRes) ? itemsRes : []);
         // Fetch user's exchanges (placeholder, implement API as needed)
         // const exchangesRes = await exchangesAPI.getUserExchanges(user?.id);
         setMyExchanges([]); // Placeholder
@@ -75,7 +99,7 @@ const Profile = () => {
             {loading ? (
               <div className="text-gray-400">Loading...</div>
             ) : myItems.length === 0 ? (
-              <div className="text-gray-400">No listings yet.</div>
+              <div className="text-gray-400">1</div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {myItems.map(item => (
@@ -102,7 +126,55 @@ const Profile = () => {
               <Repeat className="h-5 w-5 text-purple-500" />
               <span className="text-lg font-semibold text-gray-800">My Exchanges</span>
             </div>
-            <div className="text-gray-400">Coming soon...</div>
+            <div className="text-gray-400">0</div>
+          </div>
+          {/* Wishlist */}
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+              <Star className="h-5 w-5 text-pink-500" />
+              <span className="text-lg font-semibold text-gray-800">Wishlist</span>
+            </div>
+            {wishlist.length === 0 ? (
+              <div className="text-gray-400">Your wishlist is empty.</div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {wishlist.map(item => (
+                  <div key={item.id} className="bg-gray-100 rounded-lg p-4 flex gap-4 items-center">
+                    <div className="w-16 h-16 bg-white rounded flex items-center justify-center overflow-hidden">
+                      <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-800">{item.title}</div>
+                      <div className="text-xs text-gray-500">{item.price}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+          {/* Bag */}
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+              <List className="h-5 w-5 text-green-500" />
+              <span className="text-lg font-semibold text-gray-800">Bag</span>
+            </div>
+            {bag.length === 0 ? (
+              <div className="text-gray-400">Your bag is empty.</div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {bag.map(item => (
+                  <div key={item.id} className="bg-gray-100 rounded-lg p-4 flex gap-4 items-center">
+                    <div className="w-16 h-16 bg-white rounded flex items-center justify-center overflow-hidden">
+                      <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-800">{item.title}</div>
+                      <div className="text-xs text-gray-500">{item.price}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

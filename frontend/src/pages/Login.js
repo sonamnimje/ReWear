@@ -4,7 +4,9 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { useAuth } from '../contexts/AuthContext';
 import { Eye, EyeOff, User, Lock } from 'lucide-react';
-import Navbar from '../components/Navbar';
+// Removed: import Navbar from '../components/Navbar';
+import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -32,9 +34,14 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black font-body">
-      <Navbar />
-      <div className="w-full max-w-sm bg-black rounded-2xl shadow-lg p-8 flex flex-col items-center border-2 border-white">
+    <div className="min-h-screen flex items-center justify-center font-body relative" style={{
+      backgroundImage: 'url(/LoginBG.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+    }}>
+      <div className="absolute inset-0 bg-black bg-opacity-60 z-0" />
+      <div className="w-full max-w-sm bg-black rounded-2xl shadow-lg p-8 flex flex-col items-center border-2 border-white relative z-10">
         {/* Avatar */}
         <div className="w-20 h-20 rounded-full bg-base flex items-center justify-center mb-8">
           <User className="h-10 w-10 text-eco" />
@@ -105,9 +112,14 @@ const Login = () => {
         {/* Social login placeholder */}
         <div className="w-full mt-6 flex flex-col items-center">
           <div className="text-gray-400 text-xs mb-2">or</div>
-          <button className="w-full py-2 rounded-lg bg-gray-700 text-gray-200 font-medium border border-gray-600 cursor-not-allowed opacity-60 mb-2">
-            Social Login (Coming Soon)
-          </button>
+          <div className="flex w-full justify-between gap-2">
+            <button className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition cursor-pointer opacity-90">
+              <span><i className=""><FaFacebookF /></i></span> Facebook
+            </button>
+            <button className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg bg-white text-gray-700 font-medium border border-gray-300 hover:bg-gray-100 transition cursor-pointer opacity-90">
+              <span><i className=""><FcGoogle /></i></span> Google
+            </button>
+          </div>
         </div>
         <div className="w-full text-center mt-4">
           <span className="text-gray-400 text-sm">Don't have an account? </span>

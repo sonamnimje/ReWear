@@ -12,6 +12,8 @@ import Profile from './pages/Profile';
 import Exchanges from './pages/Exchanges';
 import Chat from './pages/Chat';
 import AdminPanel from './pages/AdminPanel';
+import Wishlist from './pages/Wishlist';
+import Bag from './pages/Bag';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { api } from './services/api';
 
@@ -45,13 +47,15 @@ function AppContent() {
     <div className="min-h-screen bg-gray-50">
       <main>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/items" element={<Items />} />
           <Route path="/items/:id" element={<ItemDetail />} />
           <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/bag" element={<Bag />} />
           {/* Protected routes */}
           {user && (
             <>

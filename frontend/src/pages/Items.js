@@ -20,13 +20,50 @@ const Items = () => {
   const [sortBy, setSortBy] = useState('newest');
   const [viewMode, setViewMode] = useState('grid');
 
-  const { data: items, isLoading } = useQuery(
-    ['items', searchTerm, category, sortBy],
-    () => itemsAPI.getAll({ search: searchTerm, category, sortBy }),
+  // Use mockItems for now
+  const mockItems = [
     {
-      staleTime: 5 * 60 * 1000, // 5 minutes
-    }
-  );
+      id: 1,
+      title: 'Denim Jacket',
+      description: 'Classic blue denim jacket, lightly used, size M.',
+      price_points: 120,
+      category: 'Outerwear',
+      image_urls: '["/denimjackect.png"]',
+      user: { city: 'Mumbai' },
+    },
+    {
+      id: 2,
+      title: 'Blue Gingham Top',
+      description: 'Cute blue gingham peplum top, size S.',
+      price_points: 80,
+      category: 'Tops',
+      image_urls: '["/top.png"]',
+      user: { city: 'Delhi' },
+    },
+    {
+      id: 3,
+      title: 'Red Bow Handbag',
+      description: 'Red handbag with lace bow and heart charm.',
+      price_points: 150,
+      category: 'Bags',
+      image_urls: '["/bagss.png"]',
+      user: { city: 'Bangalore' },
+    },
+    {
+      id: 4,
+      title: 'Blue Striped Shirt',
+      description: 'Men’s blue striped shirt, size L.',
+      price_points: 100,
+      category: 'Shirt',
+      image_urls: '["/shirt.png"]',
+      user: { city: 'Pune' },
+    },
+
+  ];
+  const items = mockItems;
+  const isLoading = false;
+
+  console.log('Items from API:', items);
 
   const categories = [
     'All',
@@ -162,12 +199,12 @@ const Items = () => {
                   to={`/items/${item.id}`}
                   className="bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200"
                 >
-                  <div className="aspect-square bg-gray-200 rounded-t-lg overflow-hidden">
+                  <div className="aspect-square bg-gray-200 rounded-t-lg overflow-hidden flex items-center justify-center">
                     {item.image_urls ? (
                       <img 
                         src={JSON.parse(item.image_urls)[0]} 
                         alt={item.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-center"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-gray-400">
@@ -213,12 +250,12 @@ const Items = () => {
                   className="bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200 p-4"
                 >
                   <div className="flex space-x-4">
-                    <div className="w-24 h-24 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
+                    <div className="w-24 h-24 bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center flex-shrink-0">
                       {item.image_urls ? (
                         <img 
                           src={JSON.parse(item.image_urls)[0]} 
                           alt={item.title}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover object-center"
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-gray-400">
