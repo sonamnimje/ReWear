@@ -1,0 +1,34 @@
+{
+  "name": "rewear",
+  "version": "1.0.0",
+  "description": "ReWear - Community Clothing Exchange Platform",
+  "main": "index.js",
+  "scripts": {
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm start",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "build": "cd frontend && npm run build",
+    "test": "cd backend && npm test && cd ../frontend && npm test",
+    "setup": "chmod +x setup.sh && ./setup.sh"
+  },
+  "keywords": [
+    "clothing",
+    "exchange",
+    "sustainability",
+    "community",
+    "fashion",
+    "circular-economy"
+  ],
+  "author": "ReWear Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonamnimje/rewear.git"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+} 
