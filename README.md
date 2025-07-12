@@ -135,10 +135,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 🌍 Let's Make Fashion Circular.
 ReWear is committed to creating a positive environmental and social impact by helping people exchange clothes, reduce waste, and embrace sustainable living.
 ---
+# ReWear
 
-<<<<<<<< HEAD
-(local version)
-=======
-(remote version)
->>>>>>> main
-
+A sustainable clothing exchange platform.
